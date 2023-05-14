@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>InfoVente</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+            integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">InfoVente</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/categorie_ordinateurs}">Produits</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/register}">S'enregistrer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/login}">Se connecter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/registers}">Panier</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<h1>Formulaire de livraison</h1>
+<!--
+<form action="#" method="post" th:object="${livraisonForm}" th:action="@{'${flowExecutionUrl}' + '&_eventId=submit'}">
+    <label for="ville">Ville:</label>
+    <input type="text" id="ville" name="ville" th:field="*{ville}" required><br><br>
+
+    <label for="code_postal">Code postal:</label>
+    <input type="text" id="code_postal" name="code_postal" th:field="*{codePostal}" required><br><br>
+
+    <label for="adresse">Adresse:</label>
+    <input type="text" id="adresse" name="adresse" th:field="*{adresse}" required><br><br>
+
+    <label for="pays">Pays:</label>
+    <input type="text" id="pays" name="pays" th:field="*{pays}" required><br><br>
+
+    <button type="submit">Enregistrer la livraison</button>
+</form>
+
+-->
+<a th:href="@{ ${flowExecutionUrl} + '&_eventId=paiement'}">Passer au paiement</a>
+<a th:href="@{ ${flowExecutionUrl} + '&_eventId=panier'}">Retourner au panier</a>
+</body>
+</html>

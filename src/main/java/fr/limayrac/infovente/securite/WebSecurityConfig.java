@@ -11,12 +11,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import javax.sql.DataSource;
-import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
@@ -51,11 +47,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-				.antMatchers("/").permitAll().and()
-				.authorizeRequests().antMatchers("/console/**").permitAll()
+				//.antMatchers("/").permitAll().and()
+				//.authorizeRequests().antMatchers("/console/**").permitAll()
 			.antMatchers("/categorie_ordinateurs").authenticated()
 				.antMatchers("/categorie_smartphones").authenticated()
-				.antMatchers("/panier").authenticated()
+				.antMatchers("/registers").authenticated()
 			.anyRequest().permitAll()
 			.and()
 			.formLogin()
@@ -64,11 +60,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.permitAll()
 			.and()
 			.logout().logoutSuccessUrl("/").permitAll();
-		http.csrf().disable();
-		http.headers().frameOptions().disable();
+		//http.csrf().disable();
+		//http.headers().frameOptions().disable();
 	}
-	
-	
 }
 
 

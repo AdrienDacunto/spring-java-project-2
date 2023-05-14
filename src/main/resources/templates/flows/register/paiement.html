@@ -1,0 +1,25 @@
+<!-- flows/register/paiement.html -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Paiement</title>
+</head>
+
+<body>
+<h1>Paiement</h1>
+<!--
+<form action="#" method="post" th:object="${paiementForm}">
+    <label for="numeroCarte">Numéro de carte :</label>
+    <input type="text" id="numeroCarte" name="numeroCarte" th:field="*{numeroCarte}" />
+
+    <label for="dateExpiration">Date d'expiration :</label>
+    <input type="text" id="dateExpiration" name="dateExpiration" th:field="*{dateExpiration}" />
+</form>
+-->
+<a th:href="@{ ${flowExecutionUrl} + '&_eventId=success'}">Valider le paiement</a>
+<a th:href="@{ ${flowExecutionUrl} + '&_eventId=panier'}">Retourner au panier</a>
+</body>
+
+</html>

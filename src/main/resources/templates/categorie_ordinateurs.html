@@ -28,7 +28,7 @@
                     <a class="nav-link" th:href="@{/login}">Se connecter</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/panier}">Panier</a>
+                    <a class="nav-link" th:href="@{/registers}">Panier</a>
                 </li>
             </ul>
         </div>
@@ -52,7 +52,9 @@
                     <thead>
                     <tr>
                         <th>Nom</th>
+                        <th>Description</th>
                         <th>Prix</th>
+                        <th>Quantité restante</th>
                         <th>Ajouter au panier</th>
                     </tr>
                     </thead>
@@ -60,8 +62,15 @@
                     <!-- boucle à travers les articles -->
                     <tr th:each="article : ${articles}">
                         <td th:text="${article.nom}">Nom de l'article</td>
+                        <td th:text="${article.description}">Description de l'article</td>
                         <td th:text="${article.prix}">Prix de l'article</td>
-                        <td><button class="btn btn-primary" onclick="ajouterAuPanier('${article.id}')">Ajouter au panier</button></td>
+                        <td th:text="${article.quantite}">Quantité restante en stock</td>
+                        <td>
+                            <form th:action="@{/articles/addToCart}" method="post">
+                                <input type="hidden" th:name="productId" th:value="${article.id}" />
+                                <button type="submit">Ajouter au panier</button>
+                            </form>
+                        </td>
                     </tr>
                     </tbody>
                 </table>

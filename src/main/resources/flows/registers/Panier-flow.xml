@@ -1,0 +1,37 @@
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+    <!-- Définition des états du flux de navigation -->
+    <view-state id="Panier"
+                view="flows/register/panier"
+                redirect="false">
+        <transition on="livraison"
+                    to="Livraison" />
+    </view-state>
+
+    <view-state id="Livraison"
+                view="flows/register/form_livraison">
+        <transition on="paiement"
+                    to="Paiement" />
+    </view-state>
+
+    <view-state id="Paiement"
+                view="flows/register/paiement">
+        <transition on="success"
+                    to="Success" />
+    </view-state>
+
+    <view-state id="Success"
+                view="flows/register/command_success">
+        <transition on="success"
+                    to="Panier" />
+    </view-state>
+
+    <global-transitions>
+        <transition on="panier"
+                    to="Panier" />
+    </global-transitions>
+
+</flow>

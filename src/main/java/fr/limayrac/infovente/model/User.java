@@ -20,6 +20,18 @@ public class User {
 	private String firstName;
 	@Column(name = "last_name", nullable = false, length = 20)
 	private String lastName;
+
+	@Column(name = "ville", nullable = true, length = 20)
+	private String ville;
+
+	@Column(name = "code_postal", nullable = true, length = 20)
+	private Integer codePostal;
+
+	@Column(name = "pays", nullable = true, length = 20)
+	private String pays;
+
+	@Column(name = "adresse", nullable = true, length = 100)
+	private String adresse;
 	public String getPassword() {
 		return password;
 	}
